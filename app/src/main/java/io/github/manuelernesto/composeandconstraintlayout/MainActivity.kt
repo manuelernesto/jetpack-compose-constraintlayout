@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
 
 @Composable
 fun App() {
-    val screenId = state { 2 }
     Scaffold(
             topAppBar = {
                 TopAppBar(
