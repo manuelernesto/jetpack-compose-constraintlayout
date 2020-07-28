@@ -65,7 +65,7 @@ fun App() {
                 )
             },
             bodyContent = {
-                val product = Product("Office Code", "\$234", R.color.primary_color, R.drawable.office_code)
+                val product = Product("Office Code", "\$234",R.drawable.office_code)
                 HomeContent(product)
             }
     )
@@ -75,10 +75,6 @@ fun App() {
 fun HomeContent(product: Product) {
 
     ConstraintLayout(modifier = Modifier.fillMaxSize(), constraintSet = MainConstraintSet()) {
-
-        Surface(
-                modifier = Modifier.fillMaxSize().tag("BgMain"),
-                color = colorResource(id = product.bgColor)) {}
 
         Card(
                 shape = RoundedCornerShape(topLeft = 24.dp, topRight = 24.dp),
