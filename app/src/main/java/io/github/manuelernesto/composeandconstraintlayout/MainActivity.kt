@@ -346,11 +346,5 @@ fun DefaultPreview() {
     }
 }
 
-data class Product(
-        val title: String,
-        val price: String,
-        @DrawableRes val bgColor: Int,
-        @DrawableRes val img: Int
-)
 
 
