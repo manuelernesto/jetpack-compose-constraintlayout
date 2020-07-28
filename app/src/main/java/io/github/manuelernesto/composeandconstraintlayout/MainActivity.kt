@@ -300,12 +300,7 @@ fun CardConstraintSet() = ConstraintSet {
 
 @Composable
 fun MainConstraintSet() = ConstraintSet {
-    val bgMain = tag("BgMain").apply {
-        top constrainTo parent.top
-        bottom constrainTo parent.bottom
-        left constrainTo parent.left
-        right constrainTo parent.right
-    }
+
     val bgCard = tag("BgCard").apply {
         bottom constrainTo parent.bottom
     }
