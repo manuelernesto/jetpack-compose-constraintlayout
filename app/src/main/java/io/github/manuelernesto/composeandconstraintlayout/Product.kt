@@ -1,4 +1,4 @@
-package io.github.manuelernesto.composeandconstraintlayout.ui
+package io.github.manuelernesto.composeandconstraintlayout
 
 import androidx.annotation.DrawableRes
 

@@ -1,7 +1,6 @@
 package io.github.manuelernesto.composeandconstraintlayout
 
 import android.os.Bundle
-import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
 import androidx.compose.state
