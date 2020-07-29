@@ -64,7 +64,7 @@ fun App() {
 }
 
 @Composable
-fun HomeContent(product: Product = _product) {
+fun HomeContent(product: Product = mProduct) {
 
     ConstraintLayout(modifier = Modifier.fillMaxSize(), constraintSet = MainConstraintSet()) {
 
