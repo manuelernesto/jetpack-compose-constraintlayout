@@ -68,120 +68,6 @@ fun HomeContent(product: Product = mProduct) {
 
     ConstraintLayout(modifier = Modifier.fillMaxSize(), constraintSet = MainConstraintSet()) {
 
-        Card(
-                shape = RoundedCornerShape(topLeft = 24.dp, topRight = 24.dp),
-                elevation = 0.dp,
-                modifier = Modifier.tag("BgCard").preferredHeight(444.dp).fillMaxWidth()
-        ) {
-            ConstraintLayout(modifier = Modifier.padding(16.dp), constraintSet = CardConstraintSet()) {
-                Text(
-                        modifier = Modifier.tag("TxtColor").padding(top = 64.dp),
-                        text = "Color",
-                        color = Color.Gray
-                )
-                Button(
-                        elevation = 0.dp,
-                        shape = RoundedCornerShape(10.dp),
-                        modifier =
-                        Modifier.tag("Color1").padding(top = 8.dp).width(15.dp).height(15.dp),
-                        backgroundColor = colorResource(id = R.color.primary_color),
-                        onClick = {}) {}
-
-                Button(
-                        elevation = 0.dp,
-                        shape = RoundedCornerShape(10.dp),
-                        modifier =
-                        Modifier.tag("Color2").padding(top = 8.dp, start = 8.dp).width(15.dp).height(15.dp),
-                        backgroundColor = colorResource(id = R.color.product_option_color_2),
-                        onClick = {}) {}
-
-                Button(
-                        elevation = 0.dp,
-                        shape = RoundedCornerShape(10.dp),
-                        modifier =
-                        Modifier.tag("Color3").padding(top = 8.dp, start = 8.dp).width(15.dp).height(15.dp),
-                        backgroundColor = colorResource(id = R.color.product_option_color_3),
-                        onClick = {}) {}
-                Text(
-                        modifier = Modifier.tag("TxtSize").padding(top = 64.dp, start = 64.dp),
-                        text = "Size",
-                        color = Color.Gray
-                )
-                Text(
-                        modifier = Modifier.tag("TxtSizeValue").padding(start = 64.dp, top = 8.dp, bottom = 16.dp),
-                        text = product.size,
-                        color = Color.DarkGray
-                )
-                Text(
-                        modifier = Modifier.tag("TxtDescription"),
-                        text = product.description,
-                        color = Color.Gray
-                )
-                OutlinedButton(
-                        shape = RoundedCornerShape(16.dp),
-                        modifier = Modifier.tag("BtnMinus").padding(top = 32.dp, end = 16.dp),
-                        onClick = {}) {
-                    Text(text = "-", fontSize = 23.sp)
-                }
-                Text(
-                        modifier = Modifier.tag("TxtQtd").padding(top = 32.dp),
-                        text = "01",
-                        fontSize = 23.sp,
-                        color = Color.DarkGray
-                )
-                OutlinedButton(
-                        shape = RoundedCornerShape(16.dp),
-                        modifier = Modifier.tag("BtnPlus")
-                                .padding(top = 32.dp, start = 16.dp),
-                        onClick = {}) {
-                    Text(text = "+", fontSize = 23.sp)
-                }
-
-                FloatingActionButton(
-                        modifier = Modifier.tag("BtnHeart").padding(top = 32.dp),
-                        backgroundColor = colorResource(id = R.color.heart_bg_color),
-                        elevation = 0.dp,
-                        onClick = {}) {
-                    Image(asset = imageResource(R.drawable.heart))
-                }
-
-                OutlinedButton(
-                        border = Border(
-                                size = 1.dp,
-                                color = colorResource(id = R.color.primary_color)
-                        ),
-                        shape = RoundedCornerShape(16.dp),
-                        modifier = Modifier.tag("BtnAddtoCart")
-                                .padding(top = 32.dp),
-                        onClick = {}) {
-                    Image(asset = imageResource(R.drawable.add_to_cart))
-                }
-
-                Button(
-                        elevation = 0.dp,
-                        shape = RoundedCornerShape(16.dp),
-                        modifier =
-                        Modifier.tag("BtnBuy").padding(top = 32.dp).width(275.dp),
-                        backgroundColor = colorResource(id = R.color.primary_color),
-                        onClick = {}) {
-                    Text(text = "BUY NOW", fontSize = 23.sp, color = Color.White)
-                }
-
-
-            }
-
-
-        }
-
-        Image(
-                contentScale = ContentScale.Crop,
-                asset = imageResource(id = product.img),
-                modifier = Modifier.tag("ProductImage")
-                        .preferredWidth(237.dp)
-                        .preferredHeight(261.dp)
-                        .padding(end = 32.dp, bottom = 62.dp)
-        )
-
         Text(
                 modifier = Modifier.tag("ProductCategory")
                         .padding(top = 16.dp, start = 16.dp, end = 16.dp, bottom = 8.dp),
@@ -198,13 +84,13 @@ fun HomeContent(product: Product = mProduct) {
                 color = Color.White
         )
 
-
-        Text(
-                modifier = Modifier.tag("ProductPrice")
-                        .padding(start = 16.dp, bottom = 8.dp, top = 8.dp),
-                text = product.price,
-                fontSize = 30.sp,
-                color = Color.White
+        Image(
+                contentScale = ContentScale.Crop,
+                asset = imageResource(id = product.img),
+                modifier = Modifier.tag("ProductImage")
+                        .preferredWidth(237.dp)
+                        .preferredHeight(261.dp)
+                        .padding(end = 32.dp, bottom = 62.dp)
         )
 
         Text(
@@ -215,8 +101,123 @@ fun HomeContent(product: Product = mProduct) {
                 color = Color.White
         )
 
+        Text(
+                modifier = Modifier.tag("ProductPrice")
+                        .padding(start = 16.dp, bottom = 8.dp, top = 8.dp),
+                text = product.price,
+                fontSize = 30.sp,
+                color = Color.White
+        )
+
+        Card(
+                shape = RoundedCornerShape(topLeft = 24.dp, topRight = 24.dp),
+                elevation = 0.dp,
+                modifier = Modifier.tag("BgCard").preferredHeight(444.dp).fillMaxWidth()
+        ) {
+            ConstraintLayout(modifier = Modifier.padding(16.dp), constraintSet = CardConstraintSet()) {
+                CardContent(product)
+            }
+        }
+
 
     }
+}
+
+@Composable
+fun CardContent(product: Product) {
+    Text(
+            modifier = Modifier.tag("TxtColor").padding(top = 64.dp),
+            text = "Color",
+            color = Color.Gray
+    )
+    Button(
+            elevation = 0.dp,
+            shape = RoundedCornerShape(10.dp),
+            modifier =
+            Modifier.tag("Color1").padding(top = 8.dp).width(15.dp).height(15.dp),
+            backgroundColor = colorResource(id = R.color.primary_color),
+            onClick = {}) {}
+
+    Button(
+            elevation = 0.dp,
+            shape = RoundedCornerShape(10.dp),
+            modifier =
+            Modifier.tag("Color2").padding(top = 8.dp, start = 8.dp).width(15.dp).height(15.dp),
+            backgroundColor = colorResource(id = R.color.product_option_color_2),
+            onClick = {}) {}
+
+    Button(
+            elevation = 0.dp,
+            shape = RoundedCornerShape(10.dp),
+            modifier =
+            Modifier.tag("Color3").padding(top = 8.dp, start = 8.dp).width(15.dp).height(15.dp),
+            backgroundColor = colorResource(id = R.color.product_option_color_3),
+            onClick = {}) {}
+    Text(
+            modifier = Modifier.tag("TxtSize").padding(top = 64.dp, start = 64.dp),
+            text = "Size",
+            color = Color.Gray
+    )
+    Text(
+            modifier = Modifier.tag("TxtSizeValue").padding(start = 64.dp, top = 8.dp, bottom = 16.dp),
+            text = product.size,
+            color = Color.DarkGray
+    )
+    Text(
+            modifier = Modifier.tag("TxtDescription"),
+            text = product.description,
+            color = Color.Gray
+    )
+    OutlinedButton(
+            shape = RoundedCornerShape(16.dp),
+            modifier = Modifier.tag("BtnMinus").padding(top = 32.dp, end = 16.dp),
+            onClick = {}) {
+        Text(text = "-", fontSize = 23.sp)
+    }
+    Text(
+            modifier = Modifier.tag("TxtQtd").padding(top = 32.dp),
+            text = "01",
+            fontSize = 23.sp,
+            color = Color.DarkGray
+    )
+    OutlinedButton(
+            shape = RoundedCornerShape(16.dp),
+            modifier = Modifier.tag("BtnPlus")
+                    .padding(top = 32.dp, start = 16.dp),
+            onClick = {}) {
+        Text(text = "+", fontSize = 23.sp)
+    }
+
+    FloatingActionButton(
+            modifier = Modifier.tag("BtnHeart").padding(top = 32.dp),
+            backgroundColor = colorResource(id = R.color.heart_bg_color),
+            elevation = 0.dp,
+            onClick = {}) {
+        Image(asset = imageResource(R.drawable.heart))
+    }
+
+    OutlinedButton(
+            border = Border(
+                    size = 1.dp,
+                    color = colorResource(id = R.color.primary_color)
+            ),
+            shape = RoundedCornerShape(16.dp),
+            modifier = Modifier.tag("BtnAddtoCart")
+                    .padding(top = 32.dp),
+            onClick = {}) {
+        Image(asset = imageResource(R.drawable.add_to_cart))
+    }
+
+    Button(
+            elevation = 0.dp,
+            shape = RoundedCornerShape(16.dp),
+            modifier =
+            Modifier.tag("BtnBuy").padding(top = 32.dp).width(275.dp),
+            backgroundColor = colorResource(id = R.color.primary_color),
+            onClick = {}) {
+        Text(text = "BUY NOW", fontSize = 23.sp, color = Color.White)
+    }
+
 }
 
 @Composable
