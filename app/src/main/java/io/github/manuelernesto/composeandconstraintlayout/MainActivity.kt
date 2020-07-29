@@ -3,7 +3,6 @@ package io.github.manuelernesto.composeandconstraintlayout
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
-import androidx.compose.state
 import androidx.ui.core.ContentScale
 import androidx.ui.core.Modifier
 import androidx.ui.core.setContent
@@ -43,21 +42,15 @@ fun App() {
                         title = { Text(text = "") },
                         navigationIcon = {
                             IconButton(onClick = { }) {
-                                Icon(
-                                        imageResource(R.drawable.back),
-                                        tint = Color.White
-                                )
+                                Icon(imageResource(R.drawable.back))
                             }
                         },
                         actions = {
                             IconButton(onClick = { }) {
-                                Icon(
-                                        imageResource(R.drawable.search)
-                                )
+                                Icon(imageResource(R.drawable.search))
                             }
                             IconButton(onClick = { }) {
-                                Icon(
-                                        imageResource(R.drawable.cart)
+                                Icon(imageResource(R.drawable.cart)
                                 )
                             }
 
@@ -65,7 +58,7 @@ fun App() {
                 )
             },
             bodyContent = {
-                val product = Product("Office Code", "\$234",R.drawable.office_code)
+                val product = Product("Office Code", "\$234", R.drawable.office_code)
                 HomeContent(product)
             }
     )
