@@ -68,6 +68,16 @@ fun HomeContent(product: Product = mProduct) {
 
     ConstraintLayout(modifier = Modifier.fillMaxSize(), constraintSet = MainConstraintSet()) {
 
+        Card(
+                shape = RoundedCornerShape(topLeft = 24.dp, topRight = 24.dp),
+                elevation = 0.dp,
+                modifier = Modifier.tag("BgCard").preferredHeight(444.dp).fillMaxWidth()
+        ) {
+            ConstraintLayout(modifier = Modifier.padding(16.dp), constraintSet = CardConstraintSet()) {
+                CardContent(product)
+            }
+        }
+
         Text(
                 modifier = Modifier.tag("ProductCategory")
                         .padding(top = 16.dp, start = 16.dp, end = 16.dp, bottom = 8.dp),
@@ -108,16 +118,6 @@ fun HomeContent(product: Product = mProduct) {
                 fontSize = 30.sp,
                 color = Color.White
         )
-
-        Card(
-                shape = RoundedCornerShape(topLeft = 24.dp, topRight = 24.dp),
-                elevation = 0.dp,
-                modifier = Modifier.tag("BgCard").preferredHeight(444.dp).fillMaxWidth()
-        ) {
-            ConstraintLayout(modifier = Modifier.padding(16.dp), constraintSet = CardConstraintSet()) {
-                CardContent(product)
-            }
-        }
 
 
     }
