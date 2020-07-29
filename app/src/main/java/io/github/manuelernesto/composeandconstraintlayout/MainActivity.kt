@@ -58,14 +58,13 @@ fun App() {
                 )
             },
             bodyContent = {
-                val product = Product("Office Code", "\$234", R.drawable.office_code)
-                HomeContent(product)
+                HomeContent()
             }
     )
 }
 
 @Composable
-fun HomeContent(product: Product) {
+fun HomeContent(product: Product = _product) {
 
     ConstraintLayout(modifier = Modifier.fillMaxSize(), constraintSet = MainConstraintSet()) {
 
@@ -110,12 +109,12 @@ fun HomeContent(product: Product) {
                 )
                 Text(
                         modifier = Modifier.tag("TxtSizeValue").padding(start = 64.dp, top = 8.dp, bottom = 16.dp),
-                        text = "12 cm",
+                        text = product.size,
                         color = Color.DarkGray
                 )
                 Text(
                         modifier = Modifier.tag("TxtDescription"),
-                        text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. When an unknown printer took a galley.",
+                        text = product.description,
                         color = Color.Gray
                 )
                 OutlinedButton(
