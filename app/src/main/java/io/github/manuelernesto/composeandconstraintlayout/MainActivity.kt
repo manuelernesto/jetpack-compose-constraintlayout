@@ -119,7 +119,6 @@ fun HomeContent(product: Product = mProduct) {
                 color = Color.White
         )
 
-
     }
 }
 
