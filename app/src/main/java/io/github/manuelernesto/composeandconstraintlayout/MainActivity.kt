@@ -95,7 +95,7 @@ fun HomeContent(product: Product = mProduct) {
         )
 
         Image(
-                contentScale = ContentScale.Crop,
+                contentScale = ContentScale.Fit,
                 asset = imageResource(id = product.img),
                 modifier = Modifier.tag("ProductImage")
                         .preferredWidth(237.dp)
